@@ -4166,8 +4166,11 @@ class StatisticMod(Mod):
                 self.print_sc_statistics(connection.connection_id,
                                          [connection.sc1, connection.sc2])
             elif connection.sc1:
-                sys.stdout.write("   Flow %s.1  %s\n" %
+                sys.stdout.write("%s" % (self.color["yellow"]))
+                sys.stdout.write("   Flow %s.1  %s" %
                                  (connection.connection_id, connection.sc1))
+                sys.stdout.write("%s\n" % (self.color["end"]))
+
                 self.print_sc_statistics(connection.connection_id, [connection.sc1])
             else:
                 raise InternalException("sc1 should be the only one here")
